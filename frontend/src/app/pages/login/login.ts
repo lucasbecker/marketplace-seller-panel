@@ -1,7 +1,9 @@
-import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { AuthService } from '../../services/auth';
+import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
+import { take } from 'rxjs';
+
+import { AuthService } from '../../services/auth';
 
 @Component({
   selector: 'app-login',
@@ -25,6 +27,7 @@ export class Login {
 
     this._authService
       .login(this.form.get('email')?.value as string, this.form.get('password')?.value as string)
+      .pipe(take(1))
       .subscribe({
         next: ({ data }) => {
           const { token } = data;
