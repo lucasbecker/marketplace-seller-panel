@@ -1,5 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+
+import { environment } from '../../environments/environment';
 import { IProductRequest } from '../interfaces/product-request';
 import { IProductResponse } from '../interfaces/product-response';
 import { IProductsResponse } from '../interfaces/products-response';
@@ -8,7 +10,7 @@ import { IProductsResponse } from '../interfaces/products-response';
   providedIn: 'root',
 })
 export class ProductService {
-  private readonly _apiUrl = 'http://localhost:3000/api';
+  private readonly _apiUrl = environment.apiUrl;
 
   private readonly _httpClient = inject(HttpClient);
 

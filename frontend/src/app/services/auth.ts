@@ -1,6 +1,8 @@
 import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
+import { environment } from '../../environments/environment';
+
 import { ILoginResponse } from '../interfaces/login-response';
 import { IAuthResponse } from '../interfaces/auth-response';
 
@@ -8,7 +10,7 @@ import { IAuthResponse } from '../interfaces/auth-response';
   providedIn: 'root',
 })
 export class AuthService {
-  private readonly _apiUrl = 'http://localhost:3000/api';
+  private readonly _apiUrl = environment.apiUrl;
 
   private readonly _httpClient = inject(HttpClient);
 
