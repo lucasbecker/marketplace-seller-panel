@@ -80,7 +80,7 @@ export class NewProduct {
   }
 
   public cancel() {
-    this.form.reset();
     this.imageBase64 = '';
+    this.form.reset({ title: '', price: 0, category: '', description: '' });
   }
 }
